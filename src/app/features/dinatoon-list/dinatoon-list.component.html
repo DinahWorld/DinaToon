@@ -1,0 +1,9 @@
+<div #sliderRef class="keen-slider">
+    <div *ngFor="let dinatoon of dinatoons"
+         [ngStyle]="{
+            'background-image': 'url(' + dinatoon.image + ')'
+            }"
+         class="keen-slider__slide my-list-slide"
+    >
+    </div>
+</div>

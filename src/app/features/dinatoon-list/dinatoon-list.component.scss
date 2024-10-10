@@ -1,0 +1,47 @@
+[class^="my-list-slide"],
+[class*=" my-list-slide"] {
+  height: 20em;
+}
+
+
+.my-list-slide {
+  background-size: cover;
+  border-radius: 2rem;
+  max-width: 100% !important;
+}
+
+.keen-slider__slide:last-child {
+  margin-right: 2.8em;
+}
+
+@media (min-width: 1200px) {
+  [class^="my-list-slide"],
+  [class*=" my-list-slide"] {
+    height: 20em;
+  }
+  .my-list-slide {
+    background-size: cover;
+    border-radius: 2rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1199px) {
+  [class^="my-list-slide"],
+  [class*=" my-list-slide"] {
+    height: 20em;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 599px) {
+  [class^="my-list-slide"],
+  [class*=" my-list-slide"] {
+    height: 17em;
+  }
+}
+
+@media (max-width: 399px) {
+  [class^="my-list-slide"],
+  [class*=" my-list-slide"] {
+    height: 10em;
+  }
+}
