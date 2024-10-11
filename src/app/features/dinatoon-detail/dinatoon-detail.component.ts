@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {NgIf, NgStyle} from "@angular/common";
+import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {DinatoonListComponent} from "../dinatoon-list/dinatoon-list.component";
+import {StarRatingModule} from "angular-star-rating";
 
 @Component({
     selector: 'app-dinatoon-detail',
@@ -9,7 +10,10 @@ import {DinatoonListComponent} from "../dinatoon-list/dinatoon-list.component";
     imports: [
         NgStyle,
         NgIf,
-        DinatoonListComponent
+        DinatoonListComponent,
+        StarRatingModule,
+        NgClass,
+        NgForOf
     ],
     templateUrl: './dinatoon-detail.component.html',
     styleUrl: './dinatoon-detail.component.scss'
@@ -24,6 +28,12 @@ export class DinatoonDetailComponent {
         actualChapter: string,
         chapterTotal: string
     } | undefined;
+    rating = 3;
+    stars: number[] = [1, 2, 3, 4, 5];
+
+    rate(star: number): void {
+        this.rating = star;
+    }
 
     dinatoons = [
         {
