@@ -1,23 +1,17 @@
-<mat-grid-list cols="1" rowHeight="600px">
-    <mat-grid-tile>
-        <div class="home-header">
-            <div #sliderRefHome class="keen-slider">
-                <div *ngFor="let dinatoon of currentlyReading"
-                     [ngStyle]="{
-                        'background-image': 'url(' + dinatoon.image + ')'
-                        }"
-                     class="keen-slider__slide home-header-image my-list-slide"
-                >
-                    <div class="home-header-text">
-                        <h2>{{ dinatoon.title }}</h2>
-                        <h3>en cours</h3>
-                    </div>
-                </div>
+<div class="home-header">
+    <div #sliderRefHome class="keen-slider">
+        <div *ngFor="let dinatoon of currentlyReading"
+             [ngStyle]="{ 'background-image': 'url(' + dinatoon.image + ')'}"
+             class="keen-slider__slide home-header-image my-list-slide"
+        >
+            <div class="home-header-text">
+                <h2>{{ dinatoon.title }}</h2>
+                <h3>en cours</h3>
             </div>
-
         </div>
-    </mat-grid-tile>
-</mat-grid-list>
+    </div>
+
+</div>
 
 <div class="home-list">
     <div class="home-list-mine">

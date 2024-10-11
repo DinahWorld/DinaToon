@@ -1,0 +1,26 @@
+<div *ngIf="dinatoon" class="dinatoon-detail">
+    <div *ngIf="dinatoon" class="dinatoon-detail-header">
+        <div [ngStyle]="{ 'background-image': 'url(' + dinatoon.image + ')'}" class="dinatoon-detail-header-image">
+        </div>
+    </div>
+    <div class="dinatoon-detail-sub">
+        <div class="dinatoon-detail-text">
+            <h2>{{ dinatoon.title }}</h2>
+            <h3>{{ dinatoon.genre }}</h3>
+        </div>
+        <div class="dinatoon-detail-progress">
+            <div [style.width]="progressPercentage + '%'" class="progress"></div>
+        </div>
+        <div class="dinatoon-detail-chapter">
+            <p>{{ dinatoon.actualChapter }}</p>
+            <p>{{ dinatoon.chapterTotal }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="dinatoon-detail-list">
+    <div class="dinatoon-detail-recommendation">
+        <h2>+ de Recommendations</h2>
+        <dinatoon-list [dinatoons]="dinatoons"></dinatoon-list>
+    </div>
+</div>

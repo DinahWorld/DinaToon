@@ -4,6 +4,8 @@
             'background-image': 'url(' + dinatoon.image + ')'
             }"
          class="keen-slider__slide my-list-slide"
+         [routerLink]="['/dinatoon/' + dinatoon.id]"
+         ariaCurrentWhenActive="page" routerLinkActive="active"
     >
     </div>
 </div>
