@@ -2,6 +2,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import {DinatoonListComponent} from "../dinatoon-list/dinatoon-list.component";
 import KeenSlider, {KeenSliderInstance} from "keen-slider";
 import {NgForOf, NgStyle} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 @Component({
     selector: 'app-dinatoon',
@@ -10,7 +11,8 @@ import {NgForOf, NgStyle} from "@angular/common";
     imports: [
         DinatoonListComponent,
         NgStyle,
-        NgForOf
+        NgForOf,
+        FormsModule
     ],
     styleUrls: [
         'home.component.scss',

@@ -1,0 +1,52 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                {{ isLoginMode ? 'Login' : 'Register' }}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmitLogin()" *ngIf="isLoginMode; else isRegisterForm" [formGroup]="loginForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput required type="email"/>
+                    <mat-error *ngIf="loginForm.get('email')?.invalid">Invalid email</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" matInput required type="password"/>
+                    <mat-error *ngIf="loginForm.get('password')?.invalid">Password is required</mat-error>
+                </mat-form-field>
+                <button [disabled]="loginForm.invalid" color="primary" mat-raised-button type="submit">Login</button>
+            </form>
+
+            <ng-template #isRegisterForm>
+                <form (ngSubmit)="onSubmitRegister()" [formGroup]="registerForm">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input formControlName="name" matInput required type="text"/>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" matInput required type="email"/>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" matInput required type="password"/>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input formControlName="confirmPassword" matInput required type="password"/>
+                    </mat-form-field>
+                    <button [disabled]="registerForm.invalid" color="primary" mat-raised-button type="submit">Register
+                    </button>
+                </form>
+            </ng-template>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="toggleMode()" mat-button>
+                {{ isLoginMode ? 'Create an account' : 'Already have an account?' }}
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
