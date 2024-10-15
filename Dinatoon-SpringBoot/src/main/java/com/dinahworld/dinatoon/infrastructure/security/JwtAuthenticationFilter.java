@@ -1,4 +1,4 @@
-package com.dinatoon.infrastructure.security;
+package com.dinahworld.dinatoon.infrastructure.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -16,33 +16,18 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Objects;
 
-/**
- * Custom JWT authentication filter that intercepts and processes incoming requests with JWT tokens.
- * This filter validates the JWT token from the request's Authorization header, extracts the username,
- * and performs authentication if necessary. If the token is valid, it sets the authentication in the
- * SecurityContextHolder.
- */
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JwtService jwtService;
+    private final JwtServiceImpl jwtService;
     private final UserDetailsService userDetailsService;
 
 
-    public JwtAuthenticationFilter(JwtService jwtService, UserDetailsService userDetailsService) {
+    public JwtAuthenticationFilter(JwtServiceImpl jwtService, UserDetailsService userDetailsService) {
         this.jwtService = jwtService;
         this.userDetailsService = userDetailsService;
     }
 
-    /**
-     * Filters incoming requests and processes JWT authentication.
-     *
-     * @param request     the incoming HTTP request
-     * @param response    the HTTP response
-     * @param filterChain the filter chain for additional filters
-     * @throws ServletException if an error occurs while processing the request
-     * @throws IOException      if an I/O error occurs
-     */
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
